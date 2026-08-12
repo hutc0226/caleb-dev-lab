@@ -37,7 +37,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
 
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .lab-intro__title {
@@ -57,7 +57,7 @@
 .lab-intro__title span {
     display: block;
 
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .lab-intro__description {
@@ -71,6 +71,8 @@
             1.5vw,
             1.25rem
         );
+
+    color: var(--color-text-muted);
 }
 
 .lab-intro__meta {
@@ -87,7 +89,7 @@
     font-family: var(--font-mono);
     font-size: 2.5rem;
 
-    color: var(--color-ink);
+    color: var(--color-text);
 }
 
 .lab-intro__meta-label {
@@ -121,7 +123,7 @@
 }
 
 .lab-intro__explore:hover {
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 @media (

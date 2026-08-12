@@ -45,14 +45,16 @@
 
     text-transform:
         uppercase;
+}
 
+.filter-bar__title {
     color:
-        var(--color-ink);
+        var(--color-text);
 }
 
 .filter-bar__count {
     color:
-        var(--color-blue);
+        var(--color-accent);
 }
 
 
@@ -112,7 +114,7 @@
     height: 1px;
 
     background:
-        var(--color-blue);
+        var(--color-accent);
 
     transform:
         scaleX(0);
@@ -126,12 +128,13 @@
 
 .filter-bar__button:hover {
     color:
-        var(--color-ink);
+        var(--color-text);
 }
 
-.filter-bar__button--active {
+.filter-bar__button--active,
+.filter-bar__button--active:hover {
     color:
-        var(--color-blue);
+        var(--color-accent);
 }
 
 .filter-bar__button--active::after {

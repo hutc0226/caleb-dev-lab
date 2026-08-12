@@ -1,3 +1,10 @@
+@use '../abstracts/variables' as *;
+
+
+// ----------------------------------------
+// Reset
+// ----------------------------------------
+
 *,
 *::before,
 *::after {
@@ -5,21 +12,35 @@
 }
 
 html {
+    min-width: 320px;
+
     scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-}
 
-img,
-picture,
-video,
-canvas,
-svg {
-    display: block;
+    min-width: 320px;
+    min-height: 100vh;
 
-    max-width: 100%;
+    font-family:
+        var(--font-sans);
+
+    color:
+        var(--color-text);
+
+    background:
+        var(--color-background);
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    text-rendering:
+        optimizeLegibility;
+
+    transition:
+        color $transition-base,
+        background $transition-base;
 }
 
 button,
@@ -29,25 +50,43 @@ select {
     font: inherit;
 }
 
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+img,
+picture,
+svg,
+canvas {
+    display: block;
+
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+}
+
 button,
 a {
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
-button {
-    cursor: pointer;
-}
+::selection {
+    color:
+        var(--color-white);
 
-a {
-    color: inherit;
-
-    text-decoration: none;
-}
-
-iframe {
-    border: 0;
-}
-
-dialog {
-    color: inherit;
+    background:
+        var(--color-accent);
 }

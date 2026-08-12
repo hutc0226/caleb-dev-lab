@@ -24,7 +24,7 @@ export function createFilterBar(
 
     filterBar.innerHTML = `
         <div class="filter-bar__heading">
-            <span>
+            <span class="filter-bar__title">
                 Experiments
             </span>
 

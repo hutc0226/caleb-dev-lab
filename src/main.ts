@@ -1,19 +1,60 @@
 import './styles/main.scss'
 
-import { experiments } from './data/experiment'
+import {
+    initialiseTheme,
+} from './utils/theme'
 
-import { createSiteHeader } from './components/SiteHeader'
-import { createLabIntro } from './components/LabIntro'
-import { createFilterBar } from './components/FilterBar'
-import { createExperimentGrid } from './components/ExperimentGrid'
-import { createExperimentViewer } from './components/viewer/ExperimentViewer'
+import {
+    experiments,
+} from './data/experiment'
+
+import {
+    createSiteHeader,
+} from './components/SiteHeader'
+
+import {
+    createLabIntro,
+} from './components/LabIntro'
+
+import {
+    createFilterBar,
+} from './components/FilterBar'
+
+import {
+    createExperimentGrid,
+} from './components/ExperimentGrid'
+
+import {
+    createExperimentViewer,
+} from './components/viewer/ExperimentViewer'
+
+
+// ----------------------------------------
+// Theme
+// ----------------------------------------
+
+initialiseTheme()
+
+
+// ----------------------------------------
+// Application
+// ----------------------------------------
 
 const app =
-    document.querySelector<HTMLElement>('#app')
+    document.querySelector<HTMLElement>(
+        '#app'
+    )
 
 if (!app) {
-    throw new Error('App element not found')
+    throw new Error(
+        'App element not found'
+    )
 }
+
+
+// ----------------------------------------
+// Components
+// ----------------------------------------
 
 const header =
     createSiteHeader()
@@ -26,19 +67,25 @@ const intro =
 const viewer =
     createExperimentViewer()
 
+
 const grid =
     createExperimentGrid(
         experiments,
         (experiment) => {
-            viewer.open(experiment)
+            viewer.open(
+                experiment
+            )
         }
     )
+
 
 const filterBar =
     createFilterBar(
         experiments,
         (category) => {
-            if (category === null) {
+            if (
+                category === null
+            ) {
                 grid.setExperiments(
                     experiments
                 )
@@ -49,7 +96,8 @@ const filterBar =
             const filteredExperiments =
                 experiments.filter(
                     (experiment) =>
-                        experiment.category === category
+                        experiment.category
+                        === category
                 )
 
             grid.setExperiments(
@@ -57,6 +105,11 @@ const filterBar =
             )
         }
     )
+
+
+// ----------------------------------------
+// Render
+// ----------------------------------------
 
 app.append(
     header,

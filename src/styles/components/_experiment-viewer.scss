@@ -1,5 +1,10 @@
 @use '../abstracts/variables' as *;
 
+
+// ----------------------------------------
+// Experiment viewer
+// ----------------------------------------
+
 .experiment-viewer {
     width: 96vw;
     max-width: 1800px;
@@ -9,23 +14,53 @@
 
     padding: 0;
 
-    color: var(--color-text);
-    background: var(--color-surface);
+    color:
+        var(--color-text);
 
-    border: 1px solid var(--color-border);
-    border-radius: $radius-lg;
+    background:
+        var(--color-surface);
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        $radius-lg;
 
     box-shadow:
-        0 24px 80px rgba(17, 24, 32, 0.18);
+        0
+        24px
+        80px
+        var(--color-shadow);
 
     overflow: hidden;
+
+    transition:
+        color
+        $transition-base,
+        background
+        $transition-base,
+        border-color
+        $transition-base;
 }
+
+
+// ----------------------------------------
+// Backdrop
+// ----------------------------------------
 
 .experiment-viewer::backdrop {
-    background: rgba(17, 24, 32, 0.62);
+    background:
+        var(--color-overlay);
 
-    backdrop-filter: blur(6px);
+    backdrop-filter:
+        blur(6px);
 }
+
+
+// ----------------------------------------
+// Content
+// ----------------------------------------
 
 .experiment-viewer__content {
     display: flex;
@@ -41,24 +76,49 @@
 
 .experiment-viewer__body {
     flex: 1;
+
     min-height: 0;
 
-    padding: $space-lg;
+    padding:
+        $space-lg;
 
     overflow: auto;
 
-    background: var(--color-surface-alt);
+    background:
+        var(--color-surface-alt);
+
+    transition:
+        background
+        $transition-base;
 }
 
-@media (max-width: $breakpoint-tablet) {
-    .experiment-viewer {
-        width: calc(100vw - 1rem);
-        height: calc(100vh - 1rem);
 
-        border-radius: $radius-md;
+// ----------------------------------------
+// Responsive
+// ----------------------------------------
+
+@media (
+    max-width: $breakpoint-tablet
+) {
+    .experiment-viewer {
+        width:
+            calc(
+                100vw
+                - 1rem
+            );
+
+        height:
+            calc(
+                100vh
+                - 1rem
+            );
+
+        border-radius:
+            $radius-md;
     }
 
     .experiment-viewer__body {
-        padding: $space-md;
+        padding:
+            $space-md;
     }
 }

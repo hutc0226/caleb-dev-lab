@@ -4,6 +4,11 @@
 
 $container-max: 1440px;
 
+
+// ----------------------------------------
+// Breakpoints
+// ----------------------------------------
+
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
@@ -34,20 +39,28 @@ $radius-lg: 16px;
 
 
 // ----------------------------------------
-// Motion
+// Transitions
 // ----------------------------------------
 
-$transition-fast: 150ms ease;
-$transition-base: 250ms ease;
-$transition-slow: 400ms ease;
+$transition-fast:
+    150ms ease;
+
+$transition-base:
+    250ms ease;
+
+$transition-slow:
+    400ms ease;
 
 
 // ----------------------------------------
-// Brand theme
+// Light theme
 // ----------------------------------------
 
 :root {
-    // Core Caleb's Web Works colours
+    color-scheme: light;
+
+    // Brand colours
+
     --color-sky: #51a8db;
     --color-blue: #3361e1;
     --color-ink: #111820;
@@ -55,22 +68,58 @@ $transition-slow: 400ms ease;
     --color-grey: #dddee0;
     --color-white: #ffffff;
 
+
     // Semantic colours
-    --color-background: var(--color-cloud);
-    --color-surface: var(--color-white);
-    --color-surface-alt: #eef1f4;
 
-    --color-text: var(--color-ink);
-    --color-text-muted: #626b75;
+    --color-background:
+        var(--color-cloud);
 
-    --color-border: var(--color-grey);
+    --color-surface:
+        var(--color-white);
 
-    --color-accent: var(--color-blue);
-    --color-accent-light: var(--color-sky);
+    --color-surface-alt:
+        #eef1f4;
 
-    --color-accent-hover: #284fc1;
+    --color-text:
+        var(--color-ink);
+
+    --color-text-muted:
+        #626b75;
+
+    --color-border:
+        var(--color-grey);
+
+    --color-accent:
+        var(--color-blue);
+
+    --color-accent-light:
+        var(--color-sky);
+
+    --color-accent-hover:
+        #284fc1;
+
+
+    // Overlay / shadows
+
+    --color-overlay:
+        rgba(
+            17,
+            24,
+            32,
+            0.62
+        );
+
+    --color-shadow:
+        rgba(
+            17,
+            24,
+            32,
+            0.12
+        );
+
 
     // Brand gradient
+
     --gradient-brand:
         linear-gradient(
             135deg,
@@ -78,16 +127,70 @@ $transition-slow: 400ms ease;
             var(--color-sky) 100%
         );
 
+
     // Typography
+
     --font-sans:
         Inter,
-        "Helvetica Neue",
+        'Helvetica Neue',
         Arial,
         sans-serif;
 
     --font-mono:
-        "SFMono-Regular",
+        'SFMono-Regular',
         Consolas,
-        "Liberation Mono",
+        'Liberation Mono',
         monospace;
+}
+
+
+// ----------------------------------------
+// Dark theme
+// ----------------------------------------
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+
+    --color-background:
+        #0d1218;
+
+    --color-surface:
+        #111820;
+
+    --color-surface-alt:
+        #17212b;
+
+    --color-text:
+        #f2f4f6;
+
+    --color-text-muted:
+        #aeb7c1;
+
+    --color-border:
+        #2b3641;
+
+    --color-accent:
+        #51a8db;
+
+    --color-accent-light:
+        #72bbe4;
+
+    --color-accent-hover:
+        #72bbe4;
+
+    --color-overlay:
+        rgba(
+            0,
+            0,
+            0,
+            0.74
+        );
+
+    --color-shadow:
+        rgba(
+            0,
+            0,
+            0,
+            0.36
+        );
 }
