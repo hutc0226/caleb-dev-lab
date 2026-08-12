@@ -1,96 +1,127 @@
 import type { Experiment } from '../../types/experiment'
+
+import { VIEWPORTS } from '../../utils/viewport'
+
 import { createPreviewFrame } from './PreviewFrame'
+import { createViewerToolbar } from './ViewerToolbar'
+import { createViewportControls } from './ViewportControls'
 
 export interface ExperimentViewer {
-  element: HTMLDialogElement
-  open: (experiment: Experiment) => void
-  close: () => void
+    element: HTMLDialogElement
+    open: (experiment: Experiment) => void
+    close: () => void
 }
 
 export function createExperimentViewer(): ExperimentViewer {
-  const dialog = document.createElement('dialog')
+    const dialog =
+        document.createElement('dialog')
 
-  dialog.className = 'experiment-viewer'
+    dialog.className =
+        'experiment-viewer'
 
-  dialog.innerHTML = `
-    <div class="experiment-viewer__content">
+    dialog.innerHTML = `
+        <div class="experiment-viewer__content">
+            <div class="experiment-viewer__toolbar"></div>
 
-      <header class="experiment-viewer__header">
-        <div>
-          <span class="experiment-viewer__id"></span>
-
-          <h2 class="experiment-viewer__title"></h2>
+            <div class="experiment-viewer__body"></div>
         </div>
+    `
 
-        <button
-          class="experiment-viewer__close"
-          type="button"
-          aria-label="Close experiment"
-        >
-          Close
-        </button>
-      </header>
+    const toolbarContainer =
+        dialog.querySelector<HTMLElement>(
+            '.experiment-viewer__toolbar'
+        )
 
-      <div class="experiment-viewer__body"></div>
+    const body =
+        dialog.querySelector<HTMLElement>(
+            '.experiment-viewer__body'
+        )
 
-    </div>
-  `
+    const toolbar =
+        createViewerToolbar()
 
-  const id =
-    dialog.querySelector<HTMLElement>(
-      '.experiment-viewer__id'
+    const preview =
+        createPreviewFrame()
+
+    const viewportControls =
+        createViewportControls(
+            (width) => {
+                preview.setWidth(width)
+            }
+        )
+
+    /*
+     * Keep the slider and viewport readout
+     * synchronised when the preview is
+     * resized using the drag handle.
+     */
+    preview.onResize(
+        (width) => {
+            viewportControls.setWidth(width)
+        }
     )
 
-  const title =
-    dialog.querySelector<HTMLElement>(
-      '.experiment-viewer__title'
-    )
-
-  const body =
-    dialog.querySelector<HTMLElement>(
-      '.experiment-viewer__body'
-    )
-
-  const closeButton =
-    dialog.querySelector<HTMLButtonElement>(
-      '.experiment-viewer__close'
-    )
-
-  const preview = createPreviewFrame()
-
-  if (body) {
-    body.append(preview.element)
-  }
-
-  function open(experiment: Experiment) {
-    if (id) {
-      id.textContent = `LAB / ${experiment.id}`
+    if (toolbarContainer) {
+        toolbarContainer.append(
+            toolbar.element
+        )
     }
 
-    if (title) {
-      title.textContent = experiment.title
+    if (body) {
+        body.append(
+            viewportControls.element,
+            preview.element
+        )
     }
 
-    preview.load(experiment.previewPath)
+    function open(
+        experiment: Experiment
+    ) {
+        toolbar.update(experiment)
 
-    dialog.showModal()
-  }
+        preview.load(
+            experiment.previewPath
+        )
 
-  function close() {
-    dialog.close()
+        const defaultWidth =
+            VIEWPORTS.desktop
 
-    preview.clear()
-  }
+        preview.setWidth(
+            defaultWidth
+        )
 
-  closeButton?.addEventListener('click', close)
+        viewportControls.setWidth(
+            defaultWidth
+        )
 
-  dialog.addEventListener('close', () => {
-    preview.clear()
-  })
+        dialog.showModal()
+    }
 
-  return {
-    element: dialog,
-    open,
-    close,
-  }
+    function close() {
+        dialog.close()
+        preview.clear()
+    }
+
+    /*
+     * Allow the toolbar to close
+     * the Experiment Viewer.
+     */
+    toolbar.onClose(close)
+
+    /*
+     * Also clear the iframe if the dialog
+     * is closed using Escape.
+     */
+    dialog.addEventListener(
+        'close',
+        () => {
+            preview.clear()
+        }
+    )
+
+    return {
+        element: dialog,
+        open,
+        close,
+    }
 }

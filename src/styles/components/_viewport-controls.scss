@@ -1,0 +1,25 @@
+.viewport-controls {
+    margin-bottom: 1.5rem;
+}
+
+.viewport-controls__presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.viewport-controls__custom {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+.viewport-controls__value {
+    text-align: right;
+}
+
+.viewport-controls__slider {
+    grid-column: 1 / -1;
+    width: 100%;
+}
