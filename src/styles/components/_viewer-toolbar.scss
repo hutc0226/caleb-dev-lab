@@ -1,26 +1,155 @@
+@use '../abstracts/variables' as *;
+
 .viewer-toolbar {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
 
-    gap: 2rem;
+    gap: $space-xl;
 
-    padding: 1.5rem;
+    padding:
+        $space-lg
+        $space-xl;
+
+    background: var(--color-surface);
+
+    border-bottom:
+        1px solid var(--color-border);
 }
 
 .viewer-toolbar__info {
     display: grid;
 
-    gap: 0.25rem;
+    gap: 0.2rem;
+}
+
+.viewer-toolbar__id {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--color-blue);
 }
 
 .viewer-toolbar__title {
     margin: 0;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    letter-spacing: -0.025em;
 }
 
 .viewer-toolbar__actions {
     display: flex;
     align-items: center;
 
-    gap: 1rem;
+    gap: $space-sm;
+}
+
+.viewer-toolbar__preview,
+.viewer-toolbar__github,
+.viewer-toolbar__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+
+    padding:
+        0.65rem
+        1rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    border-radius: $radius-sm;
+
+    transition:
+        color $transition-fast,
+        background $transition-fast,
+        border-color $transition-fast,
+        transform $transition-fast;
+}
+
+.viewer-toolbar__preview {
+    color: var(--color-white);
+
+    background: var(--color-blue);
+
+    border:
+        1px solid var(--color-blue);
+}
+
+.viewer-toolbar__preview:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+
+    transform: translateY(-1px);
+}
+
+.viewer-toolbar__github {
+    color: var(--color-blue);
+
+    background: transparent;
+
+    border:
+        1px solid var(--color-blue);
+}
+
+.viewer-toolbar__github:hover {
+    color: var(--color-white);
+
+    background: var(--color-blue);
+}
+
+.viewer-toolbar__close {
+    color: var(--color-text);
+
+    background: transparent;
+
+    border:
+        1px solid var(--color-border);
+}
+
+.viewer-toolbar__close:hover {
+    color: var(--color-white);
+
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+}
+
+.viewer-toolbar__preview:focus-visible,
+.viewer-toolbar__github:focus-visible,
+.viewer-toolbar__close:focus-visible {
+    outline:
+        3px solid var(--color-sky);
+
+    outline-offset: 2px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .viewer-toolbar {
+        align-items: flex-start;
+
+        padding: $space-md;
+    }
+
+    .viewer-toolbar__actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .viewer-toolbar__preview,
+    .viewer-toolbar__github,
+    .viewer-toolbar__close {
+        padding:
+            0.55rem
+            0.75rem;
+    }
 }

@@ -1,25 +1,129 @@
+@use '../abstracts/variables' as *;
+
 .viewport-controls {
-    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: $space-xl;
+
+    margin-bottom: $space-lg;
+
+    padding:
+        $space-md
+        $space-lg;
+
+    background: var(--color-surface);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius: $radius-md;
 }
 
 .viewport-controls__presets {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+
+    gap: $space-xs;
+}
+
+.viewport-controls__button {
+    min-height: 36px;
+
+    padding:
+        0.5rem
+        0.8rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: var(--color-text-muted);
+
+    background: transparent;
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius: $radius-sm;
+
+    transition:
+        color $transition-fast,
+        background $transition-fast,
+        border-color $transition-fast;
+}
+
+.viewport-controls__button:hover {
+    color: var(--color-blue);
+
+    border-color: var(--color-blue);
+}
+
+.viewport-controls__button--active {
+    color: var(--color-white);
+
+    background: var(--color-blue);
+
+    border-color: var(--color-blue);
 }
 
 .viewport-controls__custom {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 0.5rem 1rem;
-    margin-top: 1rem;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap:
+        $space-xs
+        $space-md;
+
+    width: min(100%, 500px);
+}
+
+.viewport-controls__label,
+.viewport-controls__value {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.viewport-controls__label {
+    color: var(--color-text-muted);
 }
 
 .viewport-controls__value {
+    color: var(--color-blue);
+
     text-align: right;
 }
 
 .viewport-controls__slider {
     grid-column: 1 / -1;
+
     width: 100%;
+
+    accent-color: var(--color-blue);
+
+    cursor: ew-resize;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .viewport-controls {
+        align-items: stretch;
+        flex-direction: column;
+
+        gap: $space-md;
+
+        padding: $space-md;
+    }
+
+    .viewport-controls__custom {
+        width: 100%;
+    }
 }

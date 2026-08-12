@@ -18,11 +18,21 @@ export function createViewportControls(
     controls.className =
         'viewport-controls'
 
+
+    // ----------------------------------------
+    // Preset buttons
+    // ----------------------------------------
+
     const presets =
         document.createElement('div')
 
     presets.className =
         'viewport-controls__presets'
+
+
+    // ----------------------------------------
+    // Custom viewport controls
+    // ----------------------------------------
 
     const custom =
         document.createElement('div')
@@ -62,7 +72,19 @@ export function createViewportControls(
     slider.value =
         String(VIEWPORT_MAX)
 
-    function clampWidth(width: number) {
+    slider.setAttribute(
+        'aria-label',
+        'Preview viewport width'
+    )
+
+
+    // ----------------------------------------
+    // Width helpers
+    // ----------------------------------------
+
+    function clampWidth(
+        width: number
+    ): number {
         return Math.min(
             VIEWPORT_MAX,
             Math.max(
@@ -72,7 +94,10 @@ export function createViewportControls(
         )
     }
 
-    function setWidth(width: number) {
+
+    function setWidth(
+        width: number
+    ) {
         const clampedWidth =
             clampWidth(width)
 
@@ -81,7 +106,39 @@ export function createViewportControls(
 
         value.textContent =
             `${clampedWidth}px`
+
+        const buttons =
+            presets.querySelectorAll<HTMLButtonElement>(
+                '.viewport-controls__button'
+            )
+
+        buttons.forEach(
+            (button) => {
+                const buttonWidth =
+                    Number(
+                        button.dataset.width
+                    )
+
+                const isActive =
+                    buttonWidth === clampedWidth
+
+                button.classList.toggle(
+                    'viewport-controls__button--active',
+                    isActive
+                )
+
+                button.setAttribute(
+                    'aria-pressed',
+                    String(isActive)
+                )
+            }
+        )
     }
+
+
+    // ----------------------------------------
+    // Create preset buttons
+    // ----------------------------------------
 
     Object.entries(VIEWPORTS).forEach(
         ([name, width]) => {
@@ -93,8 +150,16 @@ export function createViewportControls(
             button.className =
                 'viewport-controls__button'
 
+            button.dataset.width =
+                String(width)
+
             button.textContent =
                 `${name} — ${width}px`
+
+            button.setAttribute(
+                'aria-pressed',
+                'false'
+            )
 
             button.addEventListener(
                 'click',
@@ -108,6 +173,11 @@ export function createViewportControls(
         }
     )
 
+
+    // ----------------------------------------
+    // Custom slider
+    // ----------------------------------------
+
     slider.addEventListener(
         'input',
         () => {
@@ -119,7 +189,17 @@ export function createViewportControls(
         }
     )
 
+
+    // ----------------------------------------
+    // Initial state
+    // ----------------------------------------
+
     setWidth(VIEWPORT_MAX)
+
+
+    // ----------------------------------------
+    // Build component
+    // ----------------------------------------
 
     custom.append(
         label,
@@ -131,6 +211,7 @@ export function createViewportControls(
         presets,
         custom
     )
+
 
     return {
         element: controls,
