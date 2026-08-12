@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+
+        <meta
+            name="description"
+            content="Interactive project filtering experiment from Caleb's Dev Lab."
+        >
+
+        <title>Project Filtering | Caleb's Dev Lab</title>
+
+        <link
+            rel="stylesheet"
+            href="./style.scss"
+        >
+    </head>
+
+    <body>
+        <div class="archive">
+
+            <header class="archive-header">
+                <a
+                    class="archive-header__brand"
+                    href="#"
+                    aria-label="Index 26 home"
+                >
+                    <span class="archive-header__mark">
+                        I/
+                    </span>
+
+                    <span>
+                        INDEX / 26
+                    </span>
+                </a>
+
+                <div class="archive-header__meta">
+                    <span>
+                        Selected work
+                    </span>
+
+                    <span>
+                        Adelaide / AU
+                    </span>
+                </div>
+            </header>
+
+
+            <main>
+
+                <section class="archive-intro">
+                    <div class="archive-intro__label">
+                        <span>
+                            002
+                        </span>
+
+                        Project archive
+                    </div>
+
+                    <div class="archive-intro__content">
+                        <h1>
+                            Work worth
+                            <span>finding.</span>
+                        </h1>
+
+                        <p>
+                            An experimental archive exploring
+                            filtering, sorting and search using
+                            vanilla JavaScript.
+                        </p>
+                    </div>
+
+                    <div class="archive-intro__index">
+                        <span>
+                            Archive
+                        </span>
+
+                        <strong>
+                            08
+                        </strong>
+
+                        <span>
+                            projects
+                        </span>
+                    </div>
+                </section>
+
+
+                <section
+                    class="archive-controls"
+                    aria-label="Project controls"
+                >
+                    <div class="archive-controls__filters">
+                        <span class="archive-controls__label">
+                            Filter
+                        </span>
+
+                        <button
+                            class="
+                                archive-controls__filter
+                                archive-controls__filter--active
+                            "
+                            type="button"
+                            data-filter="all"
+                            aria-pressed="true"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            class="archive-controls__filter"
+                            type="button"
+                            data-filter="web"
+                            aria-pressed="false"
+                        >
+                            Web
+                        </button>
+
+                        <button
+                            class="archive-controls__filter"
+                            type="button"
+                            data-filter="brand"
+                            aria-pressed="false"
+                        >
+                            Brand
+                        </button>
+
+                        <button
+                            class="archive-controls__filter"
+                            type="button"
+                            data-filter="campaign"
+                            aria-pressed="false"
+                        >
+                            Campaign
+                        </button>
+
+                        <button
+                            class="archive-controls__filter"
+                            type="button"
+                            data-filter="experimental"
+                            aria-pressed="false"
+                        >
+                            Experimental
+                        </button>
+                    </div>
+
+
+                    <div class="archive-controls__tools">
+                        <label class="archive-search">
+                            <span class="archive-search__label">
+                                Search
+                            </span>
+
+                            <span class="archive-search__field">
+                                <input
+                                    type="search"
+                                    placeholder="Project name"
+                                    autocomplete="off"
+                                    data-project-search="true"
+                                >
+
+                                <span aria-hidden="true">
+                                    /
+                                </span>
+                            </span>
+                        </label>
+
+
+                        <label class="archive-sort">
+                            <span class="archive-sort__label">
+                                Sort
+                            </span>
+
+                            <select data-project-sort="true">
+                                <option value="newest">
+                                    Newest
+                                </option>
+
+                                <option value="oldest">
+                                    Oldest
+                                </option>
+
+                                <option value="title">
+                                    A–Z
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                </section>
+
+
+                <section
+                    class="project-section"
+                    aria-labelledby="project-grid-title"
+                >
+                    <div class="project-section__heading">
+                        <h2 id="project-grid-title">
+                            Selected projects
+                        </h2>
+
+                        <p
+                            class="project-section__results"
+                            aria-live="polite"
+                        >
+                            Showing
+                            <strong data-result-count="true">
+                                08
+                            </strong>
+                            projects
+                        </p>
+                    </div>
+
+
+                    <div
+                        class="project-grid"
+                        data-project-grid="true"
+                    >
+
+                        <article
+                            class="project-card"
+                            data-project-category="web"
+                            data-project-title="Morrow"
+                            data-project-year="2026"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--morrow
+                                "
+                            >
+                                <span class="project-card__index">
+                                    01
+                                </span>
+
+                                <div class="art art--morrow">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Digital platform
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Web
+                                    </span>
+
+                                    <span>
+                                        2026
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Morrow
+                                </h3>
+
+                                <p>
+                                    A digital identity and commerce
+                                    experience for an independent
+                                    furniture studio.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="brand"
+                            data-project-title="Common Ground"
+                            data-project-year="2026"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--common
+                                "
+                            >
+                                <span class="project-card__index">
+                                    02
+                                </span>
+
+                                <div class="art art--common">
+                                    <span>
+                                        CG
+                                    </span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Brand system
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Brand
+                                    </span>
+
+                                    <span>
+                                        2026
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Common Ground
+                                </h3>
+
+                                <p>
+                                    A flexible visual system for a
+                                    community-focused creative
+                                    workspace.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="campaign"
+                            data-project-title="After Hours"
+                            data-project-year="2025"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--after
+                                "
+                            >
+                                <span class="project-card__index">
+                                    03
+                                </span>
+
+                                <div class="art art--after">
+                                    <span>
+                                        AFTER
+                                    </span>
+
+                                    <span>
+                                        HOURS
+                                    </span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Campaign
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Campaign
+                                    </span>
+
+                                    <span>
+                                        2025
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    After Hours
+                                </h3>
+
+                                <p>
+                                    A launch campaign built around
+                                    motion, nightlife and cultural
+                                    discovery.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="experimental"
+                            data-project-title="Form Study"
+                            data-project-year="2026"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--form
+                                "
+                            >
+                                <span class="project-card__index">
+                                    04
+                                </span>
+
+                                <div class="art art--form">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Experimental
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Experimental
+                                    </span>
+
+                                    <span>
+                                        2026
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Form Study
+                                </h3>
+
+                                <p>
+                                    An ongoing visual study of
+                                    composition, colour and
+                                    responsive geometry.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="web"
+                            data-project-title="Field Notes"
+                            data-project-year="2025"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--field
+                                "
+                            >
+                                <span class="project-card__index">
+                                    05
+                                </span>
+
+                                <div class="art art--field">
+                                    <span>
+                                        FIELD
+                                    </span>
+
+                                    <span>
+                                        NOTES
+                                    </span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Editorial web
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Web
+                                    </span>
+
+                                    <span>
+                                        2025
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Field Notes
+                                </h3>
+
+                                <p>
+                                    A minimal editorial platform
+                                    designed around long-form
+                                    photography and writing.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="brand"
+                            data-project-title="Still"
+                            data-project-year="2024"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--still
+                                "
+                            >
+                                <span class="project-card__index">
+                                    06
+                                </span>
+
+                                <div class="art art--still">
+                                    <span>
+                                        S
+                                    </span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Identity
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Brand
+                                    </span>
+
+                                    <span>
+                                        2024
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Still
+                                </h3>
+
+                                <p>
+                                    Brand direction for a
+                                    contemporary wellness and
+                                    recovery studio.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="campaign"
+                            data-project-title="Local Assembly"
+                            data-project-year="2025"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--local
+                                "
+                            >
+                                <span class="project-card__index">
+                                    07
+                                </span>
+
+                                <div class="art art--local">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Campaign system
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Campaign
+                                    </span>
+
+                                    <span>
+                                        2025
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Local Assembly
+                                </h3>
+
+                                <p>
+                                    A modular event campaign
+                                    connecting independent makers
+                                    across the city.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+
+                        <article
+                            class="project-card"
+                            data-project-category="experimental"
+                            data-project-title="Signal"
+                            data-project-year="2024"
+                        >
+                            <div
+                                class="
+                                    project-card__visual
+                                    project-card__visual--signal
+                                "
+                            >
+                                <span class="project-card__index">
+                                    08
+                                </span>
+
+                                <div class="art art--signal">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <span class="project-card__visual-label">
+                                    Motion study
+                                </span>
+                            </div>
+
+                            <div class="project-card__content">
+                                <div class="project-card__meta">
+                                    <span>
+                                        Experimental
+                                    </span>
+
+                                    <span>
+                                        2024
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Signal
+                                </h3>
+
+                                <p>
+                                    A study in rhythm, repetition
+                                    and interface motion using
+                                    simple geometric systems.
+                                </p>
+
+                                <span class="project-card__link">
+                                    View project
+                                    <span aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </span>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                    <div
+                        class="project-empty"
+                        data-project-empty="true"
+                        hidden
+                    >
+                        <span>
+                            00
+                        </span>
+
+                        <h3>
+                            Nothing found.
+                        </h3>
+
+                        <p>
+                            Try another category or search term.
+                        </p>
+
+                        <button
+                            type="button"
+                            data-reset-filters="true"
+                        >
+                            Reset archive
+                        </button>
+                    </div>
+                </section>
+
+            </main>
+
+
+            <footer class="archive-footer">
+                <span>
+                    INDEX / 26
+                </span>
+
+                <span>
+                    Interactive archive experiment
+                </span>
+
+                <span>
+                    LAB / 002
+                </span>
+            </footer>
+
+        </div>
+
+
+        <script
+            type="module"
+            src="./main.js"
+        ></script>
+    </body>
+</html>

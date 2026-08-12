@@ -1,0 +1,1480 @@
+// ----------------------------------------
+// Design tokens
+// ----------------------------------------
+
+$paper: #f3efe4;
+$paper-dark: #e8e1d2;
+
+$ink: #191919;
+$muted: #716d65;
+
+$accent: #d9492f;
+$accent-soft: #ef8d70;
+
+$yellow: #e6bd45;
+$green: #7fa58a;
+$purple: #a68fc8;
+
+$border:
+    rgba(
+        25,
+        25,
+        25,
+        0.2
+    );
+
+$max-width: 1780px;
+
+
+// ----------------------------------------
+// Reset
+// ----------------------------------------
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    min-width: 320px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: $ink;
+    background: $paper;
+
+    -webkit-font-smoothing:
+        antialiased;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline:
+        3px solid $accent;
+
+    outline-offset: 3px;
+}
+
+
+// ----------------------------------------
+// Archive shell
+// ----------------------------------------
+
+.archive {
+    width:
+        min(
+            calc(
+                100%
+                - clamp(
+                    2rem,
+                    5vw,
+                    6rem
+                )
+            ),
+            $max-width
+        );
+
+    margin-inline: auto;
+}
+
+
+// ----------------------------------------
+// Header
+// ----------------------------------------
+
+.archive-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 88px;
+
+    border-bottom:
+        1px solid $border;
+}
+
+.archive-header__brand {
+    display: flex;
+    align-items: center;
+
+    gap: 0.75rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing:
+        0.06em;
+}
+
+.archive-header__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    color: #ffffff;
+    background: $accent;
+
+    border-radius: 2px;
+}
+
+.archive-header__meta {
+    display: flex;
+
+    gap:
+        clamp(
+            1.5rem,
+            4vw,
+            4rem
+        );
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+
+// ----------------------------------------
+// Intro
+// ----------------------------------------
+
+.archive-intro {
+    display: grid;
+
+    grid-template-columns:
+        minmax(130px, 0.5fr)
+        minmax(0, 2fr)
+        minmax(160px, 0.5fr);
+
+    gap:
+        clamp(
+            2rem,
+            5vw,
+            6rem
+        );
+
+    align-items: end;
+
+    min-height:
+        min(
+            640px,
+            70vh
+        );
+
+    padding:
+        clamp(
+            4rem,
+            10vw,
+            9rem
+        )
+        0;
+
+    border-bottom:
+        1px solid $border;
+}
+
+.archive-intro__label {
+    align-self: start;
+
+    display: grid;
+
+    gap: 0.65rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.archive-intro__label span {
+    width: max-content;
+
+    padding:
+        0.35rem
+        0.5rem;
+
+    color: #ffffff;
+    background: $accent;
+}
+
+.archive-intro__content h1 {
+    max-width: 1050px;
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            4.5rem,
+            10vw,
+            10rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.86;
+
+    letter-spacing:
+        -0.075em;
+}
+
+.archive-intro__content h1 span {
+    display: block;
+
+    color: $accent;
+}
+
+.archive-intro__content p {
+    max-width: 520px;
+
+    margin:
+        clamp(
+            2rem,
+            5vw,
+            4rem
+        )
+        0
+        0;
+
+    font-size:
+        clamp(
+            1rem,
+            1.4vw,
+            1.2rem
+        );
+
+    line-height: 1.55;
+
+    color: $muted;
+}
+
+.archive-intro__index {
+    display: grid;
+
+    align-self: end;
+
+    gap: 0.4rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.archive-intro__index span {
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.08em;
+}
+
+.archive-intro__index strong {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing:
+        -0.07em;
+
+    color: $ink;
+}
+
+
+// ----------------------------------------
+// Controls
+// ----------------------------------------
+
+.archive-controls {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr;
+
+    gap:
+        clamp(
+            2rem,
+            5vw,
+            6rem
+        );
+
+    padding:
+        1.5rem
+        0;
+
+    border-bottom:
+        1px solid $border;
+}
+
+.archive-controls__filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 0.5rem;
+}
+
+.archive-controls__label {
+    margin-right: 1rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.archive-controls__filter {
+    padding:
+        0.65rem
+        0.9rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+
+    background: transparent;
+
+    border:
+        1px solid $border;
+
+    border-radius: 999px;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.archive-controls__filter:hover {
+    border-color: $ink;
+
+    transform:
+        translateY(-1px);
+}
+
+.archive-controls__filter--active {
+    color: #ffffff;
+    background: $accent;
+
+    border-color: $accent;
+}
+
+.archive-controls__tools {
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 1fr)
+        minmax(120px, 0.4fr);
+
+    gap: 1rem;
+}
+
+.archive-search,
+.archive-sort {
+    display: grid;
+
+    gap: 0.45rem;
+}
+
+.archive-search__label,
+.archive-sort__label {
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.5625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.archive-search__field {
+    display: flex;
+    align-items: center;
+
+    border-bottom:
+        1px solid $ink;
+}
+
+.archive-search__field input {
+    width: 100%;
+
+    padding:
+        0.65rem
+        0;
+
+    color: $ink;
+    background: transparent;
+
+    border: 0;
+    outline: 0;
+}
+
+.archive-search__field input::placeholder {
+    color: $muted;
+}
+
+.archive-search__field span {
+    font-family:
+        Consolas,
+        monospace;
+
+    color: $accent;
+}
+
+.archive-sort select {
+    width: 100%;
+
+    padding:
+        0.65rem
+        0;
+
+    color: $ink;
+    background: transparent;
+
+    border: 0;
+    border-bottom:
+        1px solid $ink;
+
+    border-radius: 0;
+
+    outline: 0;
+}
+
+
+// ----------------------------------------
+// Project heading
+// ----------------------------------------
+
+.project-section {
+    padding:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        )
+        0;
+}
+
+.project-section__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+.project-section__heading h2 {
+    margin: 0;
+
+    font-size:
+        clamp(
+            1.5rem,
+            2.4vw,
+            2.25rem
+        );
+
+    font-weight: 500;
+
+    letter-spacing:
+        -0.04em;
+}
+
+.project-section__results {
+    margin: 0;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.07em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.project-section__results strong {
+    color: $accent;
+}
+
+
+// ----------------------------------------
+// Project grid
+// ----------------------------------------
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap:
+        clamp(
+            1.5rem,
+            2.5vw,
+            2.5rem
+        )
+        clamp(
+            1rem,
+            2vw,
+            2rem
+        );
+}
+
+
+// ----------------------------------------
+// Project card
+// ----------------------------------------
+
+.project-card {
+    min-width: 0;
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.project-card--entering,
+.project-card--leaving {
+    opacity: 0;
+
+    transform:
+        translateY(14px)
+        scale(0.985);
+}
+
+.project-card__visual {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    aspect-ratio:
+        4 / 3;
+
+    overflow: hidden;
+
+    border:
+        1px solid $border;
+}
+
+.project-card__index {
+    position: absolute;
+
+    top: 1rem;
+    left: 1rem;
+
+    z-index: 4;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.08em;
+}
+
+.project-card__visual-label {
+    position: absolute;
+
+    right: 1rem;
+    bottom: 1rem;
+
+    z-index: 4;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.5625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+}
+
+.project-card__content {
+    padding:
+        1.2rem
+        0
+        1rem;
+}
+
+.project-card__meta {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 1.5rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.5625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+}
+
+.project-card h3 {
+    margin:
+        0
+        0
+        0.75rem;
+
+    font-size:
+        clamp(
+            1.6rem,
+            2.5vw,
+            2.5rem
+        );
+
+    font-weight: 500;
+
+    letter-spacing:
+        -0.05em;
+
+    transition:
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.project-card p {
+    max-width: 420px;
+
+    margin:
+        0
+        0
+        1.5rem;
+
+    font-size: 0.875rem;
+
+    line-height: 1.55;
+
+    color: $muted;
+}
+
+.project-card__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 0.75rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+
+    border-top:
+        1px solid $border;
+}
+
+.project-card__link span {
+    transition:
+        transform 180ms ease;
+}
+
+.project-card:hover h3 {
+    color: $accent;
+
+    transform:
+        translateX(4px);
+}
+
+.project-card:hover
+.project-card__link span {
+    transform:
+        translate(
+            3px,
+            -3px
+        );
+}
+
+
+// ----------------------------------------
+// Abstract artwork
+// ----------------------------------------
+
+.art {
+    position: relative;
+
+    width: 72%;
+    height: 72%;
+}
+
+
+// Morrow
+
+.project-card__visual--morrow {
+    background: $yellow;
+}
+
+.art--morrow {
+    display: grid;
+    place-items: center;
+}
+
+.art--morrow span:first-child {
+    width: 62%;
+
+    aspect-ratio: 1;
+
+    background: $ink;
+
+    border-radius:
+        50%
+        50%
+        4%
+        50%;
+
+    transform:
+        rotate(18deg);
+}
+
+.art--morrow span:last-child {
+    position: absolute;
+
+    width: 42%;
+    height: 9%;
+
+    background: $accent;
+
+    transform:
+        rotate(-32deg);
+}
+
+
+// Common Ground
+
+.project-card__visual--common {
+    color: #ffffff;
+    background: $accent;
+}
+
+.art--common {
+    display: grid;
+    place-items: center;
+}
+
+.art--common::before,
+.art--common::after {
+    content: '';
+
+    position: absolute;
+
+    width: 58%;
+
+    aspect-ratio: 1;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+    border-radius: 50%;
+}
+
+.art--common::before {
+    left: 4%;
+}
+
+.art--common::after {
+    right: 4%;
+}
+
+.art--common span {
+    position: relative;
+
+    z-index: 2;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            7rem
+        );
+
+    font-weight: 700;
+
+    letter-spacing:
+        -0.08em;
+}
+
+
+// After Hours
+
+.project-card__visual--after {
+    color: #ffffff;
+    background: $ink;
+}
+
+.art--after {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            5rem
+        );
+
+    font-weight: 700;
+
+    line-height: 0.8;
+
+    letter-spacing:
+        -0.07em;
+
+    transform:
+        rotate(-8deg);
+}
+
+.art--after span:last-child {
+    color: $accent-soft;
+
+    transform:
+        translateX(18%);
+}
+
+
+// Form Study
+
+.project-card__visual--form {
+    background: $purple;
+}
+
+.art--form {
+    display: grid;
+    place-items: center;
+}
+
+.art--form span {
+    position: absolute;
+
+    border:
+        2px solid $ink;
+}
+
+.art--form span:nth-child(1) {
+    width: 72%;
+    height: 72%;
+
+    border-radius: 50%;
+}
+
+.art--form span:nth-child(2) {
+    width: 48%;
+    height: 78%;
+
+    transform:
+        rotate(36deg);
+}
+
+.art--form span:nth-child(3) {
+    width: 80%;
+    height: 22%;
+
+    background: $accent;
+
+    border: 0;
+
+    transform:
+        rotate(-28deg);
+}
+
+
+// Field Notes
+
+.project-card__visual--field {
+    background: $green;
+}
+
+.art--field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0.2rem;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            5.5rem
+        );
+
+    line-height: 0.85;
+
+    letter-spacing:
+        -0.06em;
+}
+
+.art--field span:last-child {
+    align-self: flex-end;
+
+    font-style: italic;
+}
+
+
+// Still
+
+.project-card__visual--still {
+    color: #ffffff;
+
+    background: $accent;
+}
+
+.art--still {
+    display: grid;
+    place-items: center;
+}
+
+.art--still::before {
+    content: '';
+
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    border-radius:
+        50%
+        50%
+        0
+        50%;
+
+    transform:
+        rotate(45deg);
+}
+
+.art--still span {
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            4rem,
+            9vw,
+            9rem
+        );
+
+    font-style: italic;
+}
+
+
+// Local Assembly
+
+.project-card__visual--local {
+    background: $paper-dark;
+}
+
+.art--local {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 0.5rem;
+}
+
+.art--local span:nth-child(1) {
+    background: $accent;
+}
+
+.art--local span:nth-child(2) {
+    background: $yellow;
+
+    border-radius:
+        50%
+        50%
+        0
+        0;
+}
+
+.art--local span:nth-child(3) {
+    background: $green;
+
+    border-radius: 50%;
+}
+
+.art--local span:nth-child(4) {
+    background: $purple;
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+// Signal
+
+.project-card__visual--signal {
+    color: #ffffff;
+
+    background: $ink;
+}
+
+.art--signal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+}
+
+.art--signal span {
+    width: 18%;
+    height: 75%;
+
+    background: $paper;
+
+    transform:
+        skewX(-15deg);
+}
+
+.art--signal span:nth-child(2) {
+    height: 48%;
+
+    background: $yellow;
+}
+
+.art--signal span:nth-child(3) {
+    height: 25%;
+
+    background: $accent;
+}
+
+
+// ----------------------------------------
+// Empty state
+// ----------------------------------------
+
+.project-empty {
+    padding:
+        clamp(
+            5rem,
+            10vw,
+            10rem
+        )
+        0;
+
+    text-align: center;
+
+    border-top:
+        1px solid $border;
+}
+
+.project-empty span {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.625rem;
+
+    color: $accent;
+}
+
+.project-empty h3 {
+    margin:
+        0
+        0
+        0.75rem;
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            6rem
+        );
+
+    font-weight: 500;
+
+    letter-spacing:
+        -0.06em;
+}
+
+.project-empty p {
+    margin:
+        0
+        0
+        2rem;
+
+    color: $muted;
+}
+
+.project-empty button {
+    padding:
+        0.8rem
+        1.1rem;
+
+    color: #ffffff;
+
+    background: $accent;
+
+    border: 0;
+
+    border-radius: 999px;
+
+    transition:
+        background 180ms ease,
+        transform 180ms ease;
+}
+
+.project-empty button:hover {
+    background: $accent-soft;
+
+    transform:
+        translateY(-1px);
+}
+
+
+// ----------------------------------------
+// Footer
+// ----------------------------------------
+
+.archive-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    min-height: 90px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 0.5625rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color: $muted;
+
+    border-top:
+        1px solid $border;
+}
+
+
+// ----------------------------------------
+// Tablet
+// ----------------------------------------
+
+@media (
+    max-width: 1000px
+) {
+    .archive-intro {
+        grid-template-columns:
+            1fr
+            auto;
+
+        min-height: auto;
+    }
+
+    .archive-intro__label {
+        grid-column:
+            1 / -1;
+    }
+
+    .archive-intro__content h1 {
+        font-size:
+            clamp(
+                4rem,
+                14vw,
+                8rem
+            );
+    }
+
+    .archive-controls {
+        grid-template-columns:
+            1fr;
+    }
+
+    .project-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+    }
+}
+
+
+// ----------------------------------------
+// Mobile
+// ----------------------------------------
+
+@media (
+    max-width: 640px
+) {
+    .archive {
+        width:
+            calc(
+                100%
+                - 2rem
+            );
+    }
+
+    .archive-header {
+        min-height: 72px;
+    }
+
+    .archive-header__meta {
+        display: none;
+    }
+
+    .archive-intro {
+        display: block;
+
+        padding:
+            4rem
+            0;
+    }
+
+    .archive-intro__label {
+        margin-bottom: 3rem;
+    }
+
+    .archive-intro__content h1 {
+        font-size:
+            clamp(
+                3.8rem,
+                18vw,
+                6rem
+            );
+    }
+
+    .archive-intro__index {
+        margin-top: 3rem;
+    }
+
+    .archive-controls__filters {
+        align-items: flex-start;
+    }
+
+    .archive-controls__label {
+        width: 100%;
+
+        margin:
+            0
+            0
+            0.5rem;
+    }
+
+    .archive-controls__tools {
+        grid-template-columns:
+            1fr;
+    }
+
+    .project-section__heading {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 0.75rem;
+    }
+
+    .project-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .project-card h3 {
+        font-size: 2rem;
+    }
+
+    .archive-footer {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 0.75rem;
+
+        padding:
+            1.5rem
+            0;
+    }
+}
+
+
+// ----------------------------------------
+// Reduced motion
+// ----------------------------------------
+
+@media (
+    prefers-reduced-motion:
+        reduce
+) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+    }
+}
