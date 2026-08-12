@@ -1,0 +1,11 @@
+.preview-frame {
+  width: 100%;
+  min-height: 500px;
+}
+
+.preview-frame__iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+}

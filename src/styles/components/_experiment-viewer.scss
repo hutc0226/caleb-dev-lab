@@ -1,0 +1,23 @@
+.experiment-viewer {
+  width: 95vw;
+  max-width: none;
+  height: 92vh;
+  max-height: none;
+  padding: 0;
+  border: 0;
+}
+
+.experiment-viewer__content {
+  padding: 2rem;
+}
+
+.experiment-viewer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.experiment-viewer__body {
+  margin-top: 2rem;
+}
