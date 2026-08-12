@@ -1,0 +1,141 @@
+@use '../abstracts/variables' as *;
+
+.lab-intro {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(220px, 0.5fr);
+
+    gap: $space-3xl;
+
+    width: min(
+        calc(100% - 3rem),
+        $container-max
+    );
+
+    margin-inline: auto;
+
+    padding-block:
+        $space-4xl;
+
+    border-bottom:
+        1px solid var(--color-border);
+}
+
+.lab-intro__content {
+    max-width: 850px;
+}
+
+.lab-intro__eyebrow {
+    display: block;
+
+    margin-bottom: $space-xl;
+
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--color-blue);
+}
+
+.lab-intro__title {
+    margin-bottom: $space-xl;
+
+    font-size:
+        clamp(
+            3.5rem,
+            8vw,
+            8rem
+        );
+
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+.lab-intro__title span {
+    display: block;
+
+    color: var(--color-blue);
+}
+
+.lab-intro__description {
+    max-width: 650px;
+
+    margin-bottom: 0;
+
+    font-size:
+        clamp(
+            1rem,
+            1.5vw,
+            1.25rem
+        );
+}
+
+.lab-intro__meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: $space-2xl;
+}
+
+.lab-intro__meta-value {
+    display: block;
+
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+
+    color: var(--color-ink);
+}
+
+.lab-intro__meta-label {
+    display: block;
+
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: var(--color-text-muted);
+}
+
+.lab-intro__explore {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: $space-lg;
+
+    padding-top: $space-md;
+
+    border-top:
+        1px solid var(--color-border);
+
+    font-size: 0.875rem;
+
+    transition:
+        color $transition-fast;
+}
+
+.lab-intro__explore:hover {
+    color: var(--color-blue);
+}
+
+@media (
+    max-width: $breakpoint-tablet
+) {
+    .lab-intro {
+        grid-template-columns: 1fr;
+
+        padding-block:
+            $space-3xl;
+    }
+
+    .lab-intro__meta {
+        flex-direction: row;
+        align-items: end;
+    }
+}

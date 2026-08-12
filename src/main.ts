@@ -2,24 +2,42 @@ import './styles/main.scss'
 
 import { experiments } from './data/experiment'
 
+import { createSiteHeader } from './components/SiteHeader'
+import { createLabIntro } from './components/LabIntro'
 import { createExperimentGrid } from './components/ExperimentGrid'
 import { createExperimentViewer } from './components/viewer/ExperimentViewer'
 
 const app =
-  document.querySelector<HTMLElement>('#app')
+    document.querySelector<HTMLElement>('#app')
 
 if (!app) {
-  throw new Error('App element not found')
+    throw new Error('App element not found')
 }
 
-const viewer = createExperimentViewer()
+const header =
+    createSiteHeader()
 
-const grid = createExperimentGrid(
-  experiments,
-  (experiment) => {
-    viewer.open(experiment)
-  }
+const intro =
+    createLabIntro(
+        experiments.length
+    )
+
+const viewer =
+    createExperimentViewer()
+
+const grid =
+    createExperimentGrid(
+        experiments,
+        (experiment) => {
+            viewer.open(experiment)
+        }
+    )
+
+grid.id = 'experiments'
+
+app.append(
+    header,
+    intro,
+    grid,
+    viewer.element
 )
-
-app.append(grid)
-app.append(viewer.element)
