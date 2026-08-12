@@ -4,6 +4,7 @@ import { experiments } from './data/experiment'
 
 import { createSiteHeader } from './components/SiteHeader'
 import { createLabIntro } from './components/LabIntro'
+import { createFilterBar } from './components/FilterBar'
 import { createExperimentGrid } from './components/ExperimentGrid'
 import { createExperimentViewer } from './components/viewer/ExperimentViewer'
 
@@ -33,11 +34,34 @@ const grid =
         }
     )
 
-grid.id = 'experiments'
+const filterBar =
+    createFilterBar(
+        experiments,
+        (category) => {
+            if (category === null) {
+                grid.setExperiments(
+                    experiments
+                )
+
+                return
+            }
+
+            const filteredExperiments =
+                experiments.filter(
+                    (experiment) =>
+                        experiment.category === category
+                )
+
+            grid.setExperiments(
+                filteredExperiments
+            )
+        }
+    )
 
 app.append(
     header,
     intro,
-    grid,
+    filterBar.element,
+    grid.element,
     viewer.element
 )

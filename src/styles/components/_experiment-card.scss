@@ -1,0 +1,349 @@
+@use '../abstracts/variables' as *;
+
+.experiment-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius: $radius-md;
+
+    transition:
+        border-color $transition-base,
+        transform $transition-base;
+}
+
+.experiment-card:hover {
+    border-color: var(--color-blue);
+
+    transform:
+        translateY(-3px);
+}
+
+.experiment-card:has(
+    .experiment-card__action:focus-visible
+) {
+    outline:
+        3px solid var(--color-sky);
+
+    outline-offset: 3px;
+}
+
+
+// ----------------------------------------
+// Preview
+// ----------------------------------------
+
+.experiment-card__preview {
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-ink) 0%,
+            #1b2733 100%
+        );
+
+    border-bottom:
+        1px solid var(--color-border);
+}
+
+.experiment-card__preview-grid {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.2) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.2) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        32px 32px;
+
+    transition:
+        transform $transition-slow,
+        opacity $transition-slow;
+}
+
+.experiment-card:hover
+.experiment-card__preview-grid {
+    transform:
+        scale(1.04);
+
+    opacity: 0.25;
+}
+
+.experiment-card__preview-content {
+    position: absolute;
+
+    inset: $space-lg;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.experiment-card__preview-id {
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -0.06em;
+
+    color:
+        var(--color-white);
+}
+
+.experiment-card__preview-category {
+    align-self: flex-start;
+
+    padding:
+        0.35rem
+        0.6rem;
+
+    font-family:
+        var(--font-mono);
+
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color:
+        var(--color-white);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.35);
+
+    border-radius:
+        $radius-sm;
+}
+
+
+// ----------------------------------------
+// Content
+// ----------------------------------------
+
+.experiment-card__content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: $space-lg;
+}
+
+.experiment-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: $space-md;
+
+    margin-bottom:
+        $space-xl;
+}
+
+.experiment-card__id,
+.experiment-card__status {
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6875rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+}
+
+.experiment-card__id {
+    color:
+        var(--color-blue);
+}
+
+.experiment-card__status {
+    color:
+        var(--color-text-muted);
+}
+
+.experiment-card__status[
+    data-status='complete'
+] {
+    color:
+        var(--color-blue);
+}
+
+.experiment-card__status[
+    data-status='in-progress'
+] {
+    color:
+        var(--color-sky);
+}
+
+
+// ----------------------------------------
+// Title and description
+// ----------------------------------------
+
+.experiment-card__title {
+    margin-bottom:
+        $space-md;
+
+    font-size:
+        clamp(
+            1.5rem,
+            2.5vw,
+            2rem
+        );
+
+    font-weight: 600;
+
+    letter-spacing:
+        -0.035em;
+}
+
+.experiment-card__description {
+    max-width: 42rem;
+
+    margin-bottom:
+        $space-xl;
+}
+
+
+// ----------------------------------------
+// Footer
+// ----------------------------------------
+
+.experiment-card__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: $space-lg;
+
+    margin-top: auto;
+
+    padding-top:
+        $space-lg;
+
+    border-top:
+        1px solid
+        var(--color-border);
+}
+
+.experiment-card__technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap:
+        $space-xs
+        $space-sm;
+}
+
+.experiment-card__technologies span {
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6875rem;
+
+    letter-spacing:
+        0.05em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--color-text-muted);
+}
+
+.experiment-card__view {
+    display: flex;
+    align-items: center;
+
+    gap: $space-xs;
+
+    flex-shrink: 0;
+
+    font-size:
+        0.8125rem;
+
+    font-weight: 500;
+
+    color:
+        var(--color-ink);
+}
+
+.experiment-card__view span {
+    transition:
+        transform
+        $transition-fast;
+}
+
+.experiment-card:hover
+.experiment-card__view span {
+    transform:
+        translate(
+            3px,
+            -3px
+        );
+}
+
+
+// ----------------------------------------
+// Clickable layer
+// ----------------------------------------
+
+.experiment-card__action {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    background:
+        transparent;
+
+    border: 0;
+}

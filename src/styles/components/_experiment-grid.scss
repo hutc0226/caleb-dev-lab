@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+
+.experiment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: $space-xl;
+
+    width: min(
+        calc(100% - 3rem),
+        $container-max
+    );
+
+    margin-inline: auto;
+
+    padding-block:
+        $space-xl
+        $space-4xl;
+}
+
+@media (
+    max-width: $breakpoint-tablet
+) {
+    .experiment-grid {
+        grid-template-columns:
+            1fr;
+
+        gap: $space-lg;
+
+        width:
+            calc(100% - 2rem);
+
+        padding-block:
+            $space-2xl
+            $space-3xl;
+    }
+}

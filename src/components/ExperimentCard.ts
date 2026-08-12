@@ -1,48 +1,99 @@
 import type { Experiment } from '../types/experiment'
 
 export function createExperimentCard(
-  experiment: Experiment,
-  onOpen: (experiment: Experiment) => void
+    experiment: Experiment,
+    onOpen: (experiment: Experiment) => void
 ): HTMLElement {
-  const card = document.createElement('article')
+    const card =
+        document.createElement('article')
 
-  card.className = 'experiment-card'
+    card.className = 'experiment-card'
 
-  card.innerHTML = `
-    <span class="experiment-card__id">
-      LAB / ${experiment.id}
-    </span>
+    const statusLabel =
+        experiment.status
+            .replace('-', ' ')
+            .toUpperCase()
 
-    <h2 class="experiment-card__title">
-      ${experiment.title}
-    </h2>
+    card.innerHTML = `
+        <div class="experiment-card__preview">
+            <div class="experiment-card__preview-grid"></div>
 
-    <p class="experiment-card__description">
-      ${experiment.description}
-    </p>
+            <div class="experiment-card__preview-content">
+                <span class="experiment-card__preview-id">
+                    ${experiment.id}
+                </span>
 
-    <div class="experiment-card__technologies">
-      ${experiment.technologies
-        .map((technology) => `<span>${technology}</span>`)
-        .join('')}
-    </div>
+                <span class="experiment-card__preview-category">
+                    ${experiment.category}
+                </span>
+            </div>
+        </div>
 
-    <button
-      class="experiment-card__button"
-      type="button"
-    >
-      View experiment
-    </button>
-  `
+        <div class="experiment-card__content">
 
-  const button =
-    card.querySelector<HTMLButtonElement>(
-      '.experiment-card__button'
+            <div class="experiment-card__meta">
+                <span class="experiment-card__id">
+                    LAB / ${experiment.id}
+                </span>
+
+                <span
+                    class="experiment-card__status"
+                    data-status="${experiment.status}"
+                >
+                    ${statusLabel}
+                </span>
+            </div>
+
+            <h2 class="experiment-card__title">
+                ${experiment.title}
+            </h2>
+
+            <p class="experiment-card__description">
+                ${experiment.description}
+            </p>
+
+            <div class="experiment-card__footer">
+                <div class="experiment-card__technologies">
+                    ${experiment.technologies
+                        .map(
+                            (technology) => `
+                                <span>
+                                    ${technology}
+                                </span>
+                            `
+                        )
+                        .join('')}
+                </div>
+
+                <span
+                    class="experiment-card__view"
+                    aria-hidden="true"
+                >
+                    View lab
+                    <span>↗</span>
+                </span>
+            </div>
+
+        </div>
+
+        <button
+            class="experiment-card__action"
+            type="button"
+            aria-label="Open ${experiment.title}"
+        ></button>
+    `
+
+    const button =
+        card.querySelector<HTMLButtonElement>(
+            '.experiment-card__action'
+        )
+
+    button?.addEventListener(
+        'click',
+        () => {
+            onOpen(experiment)
+        }
     )
 
-  button?.addEventListener('click', () => {
-    onOpen(experiment)
-  })
-
-  return card
+    return card
 }

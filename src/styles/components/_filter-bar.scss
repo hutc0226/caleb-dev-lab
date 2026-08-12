@@ -1,0 +1,174 @@
+@use '../abstracts/variables' as *;
+
+.filter-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: $space-2xl;
+
+    width: min(
+        calc(100% - 3rem),
+        $container-max
+    );
+
+    margin-inline: auto;
+
+    padding-top: $space-3xl;
+    padding-bottom: $space-lg;
+
+    border-bottom:
+        1px solid var(--color-border);
+}
+
+
+// ----------------------------------------
+// Heading
+// ----------------------------------------
+
+.filter-bar__heading {
+    display: flex;
+    align-items: baseline;
+
+    gap: $space-sm;
+
+    flex-shrink: 0;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.75rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--color-ink);
+}
+
+.filter-bar__count {
+    color:
+        var(--color-blue);
+}
+
+
+// ----------------------------------------
+// Filters
+// ----------------------------------------
+
+.filter-bar__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    gap:
+        $space-xs
+        $space-lg;
+}
+
+.filter-bar__button {
+    position: relative;
+
+    padding:
+        $space-xs 0;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6875rem;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--color-text-muted);
+
+    background:
+        transparent;
+
+    border: 0;
+
+    transition:
+        color $transition-fast;
+}
+
+.filter-bar__button::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background:
+        var(--color-blue);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        right;
+
+    transition:
+        transform $transition-base;
+}
+
+.filter-bar__button:hover {
+    color:
+        var(--color-ink);
+}
+
+.filter-bar__button--active {
+    color:
+        var(--color-blue);
+}
+
+.filter-bar__button--active::after {
+    transform:
+        scaleX(1);
+
+    transform-origin:
+        left;
+}
+
+
+// ----------------------------------------
+// Responsive
+// ----------------------------------------
+
+@media (
+    max-width: $breakpoint-tablet
+) {
+    .filter-bar {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            $space-lg;
+
+        width:
+            calc(100% - 2rem);
+
+        padding-top:
+            $space-2xl;
+    }
+
+    .filter-bar__filters {
+        justify-content:
+            flex-start;
+    }
+}

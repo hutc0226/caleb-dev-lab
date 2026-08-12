@@ -4,10 +4,14 @@
 @use 'base/reset';
 @use 'base/typography';
 
+@use 'components/site-header';
+@use 'components/lab-intro';
+
+@use 'components/filter-bar';
+@use 'components/experiment-grid';
+@use 'components/experiment-card';
+
 @use 'components/experiment-viewer';
 @use 'components/preview-frame';
 @use 'components/viewport-controls';
 @use 'components/viewer-toolbar';
-
-@use 'components/site-header';
-@use 'components/lab-intro';
