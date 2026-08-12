@@ -1,0 +1,9 @@
+{
+    "class-style": "bem",
+    "id-class-style": "dash",
+    "indent-style": "spaces",
+    "indent-width": 4,
+    "line-end-style": "lf",
+    "attr-quote-style": "double",
+    "html-req-lang": true
+}
