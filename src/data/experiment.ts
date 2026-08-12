@@ -66,4 +66,35 @@ export const experiments:
             featured:
                 true,
         },
+
+        {
+            id: '003',
+
+            slug:
+                'kinetic-interactions',
+
+            title:
+                'Kinetic Interaction Gallery',
+
+            description:
+                'An experimental interface exploring pointer tracking, dynamic hover previews, magnetic interactions and motion-driven UI behaviour.',
+
+            category:
+                'Interaction',
+
+            technologies: [
+                'HTML',
+                'SCSS',
+                'JavaScript',
+            ],
+
+            status:
+                'in-progress',
+
+            previewPath:
+                'labs/003-kinetic-interactions/',
+
+            featured:
+                true,
+        },
     ]
