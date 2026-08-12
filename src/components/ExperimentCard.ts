@@ -7,7 +7,8 @@ export function createExperimentCard(
     const card =
         document.createElement('article')
 
-    card.className = 'experiment-card'
+    card.className =
+        `experiment-card experiment-card--${experiment.id}`
 
     const statusLabel =
         experiment.status

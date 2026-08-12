@@ -5,23 +5,46 @@
 
     grid-template-columns:
         repeat(
-            2,
+            3,
             minmax(0, 1fr)
         );
 
-    gap: $space-xl;
+    gap:
+        $space-xl;
 
-    width: min(
-        calc(100% - 3rem),
-        $container-max
-    );
+    width:
+        min(
+            calc(100% - 3rem),
+            $container-max
+        );
 
     margin-inline: auto;
 
-    padding-block:
-        $space-xl
+    padding-bottom:
         $space-4xl;
 }
+
+
+// ----------------------------------------
+// Laptop
+// ----------------------------------------
+
+@media (
+    max-width: 1200px
+) {
+    .experiment-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+}
+
+
+// ----------------------------------------
+// Tablet
+// ----------------------------------------
 
 @media (
     max-width: $breakpoint-tablet
@@ -30,13 +53,13 @@
         grid-template-columns:
             1fr;
 
-        gap: $space-lg;
-
         width:
-            calc(100% - 2rem);
+            min(
+                calc(100% - 2rem),
+                $container-max
+            );
 
-        padding-block:
-            $space-2xl
-            $space-3xl;
+        gap:
+            $space-lg;
     }
 }

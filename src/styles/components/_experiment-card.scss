@@ -152,6 +152,74 @@
 
 
 // ----------------------------------------
+// Experiment preview themes
+// ----------------------------------------
+
+.experiment-card--001
+.experiment-card__preview {
+    background: #0b0d10;
+}
+
+.experiment-card--001
+.experiment-card__preview-category {
+    color: #ff5c35;
+
+    border-color:
+        rgba(255, 92, 53, 0.65);
+}
+
+.experiment-card--002
+.experiment-card__preview {
+    background: #f3efe4;
+}
+
+.experiment-card--002
+.experiment-card__preview-grid {
+    background-image:
+        linear-gradient(
+            rgba(217, 73, 47, 0.35) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(217, 73, 47, 0.35) 1px,
+            transparent 1px
+        );
+}
+
+.experiment-card--002
+.experiment-card__preview-id {
+    color: #191919;
+}
+
+.experiment-card--002
+.experiment-card__preview-category {
+    color: #d9492f;
+
+    border-color:
+        rgba(217, 73, 47, 0.65);
+}
+
+.experiment-card--003
+.experiment-card__preview {
+    background: #160f19;
+}
+
+.experiment-card--003
+.experiment-card__preview-id {
+    color: #f3eee6;
+}
+
+.experiment-card--003
+.experiment-card__preview-category {
+    color: #c8ff3d;
+
+    border-color:
+        rgba(200, 255, 61, 0.65);
+}
+
+
+// ----------------------------------------
 // Content
 // ----------------------------------------
 
